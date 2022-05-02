@@ -4,7 +4,7 @@ function app($abstract = null){
     if(is_null($abstract)) return $app;
     return $app->make($abstract);
 }
-function request() : \Illuminate\Http\Request{
+function request() : \Symfony\Component\HttpFoundation\Request{
     return app('request');
 }
 function sesion() : \Symfony\Component\HttpFoundation\Session\Session{
@@ -13,4 +13,8 @@ function sesion() : \Symfony\Component\HttpFoundation\Session\Session{
 
 function files() : \League\Flysystem\Filesystem{
     return app('files');
+}
+
+function router() : \Application\Routing\Router{
+    return app('router');
 }

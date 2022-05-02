@@ -2,6 +2,7 @@
 namespace Application;
 
 
+use Application\Routing\Router;
 use System\Container;
 use System\Traits\Singleton;
 
@@ -37,6 +38,7 @@ class App extends Container {
     }
 
     public function run(){
-
+        $router = Router::getInstance();
+        $router->resolve(request());
     }
 }

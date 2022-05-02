@@ -17,6 +17,8 @@
     "require": {
         "illuminate/http": "^8.83",
         "symfony/var-dumper": "^5.4",
-        "league/flysystem": "^2.4"
+        "league/flysystem": "^2.4",
+        "illuminate/view": "^8.83",
+        "illuminate/routing": "^8.83"
     }
 }

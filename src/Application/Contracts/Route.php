@@ -5,6 +5,8 @@ interface Route{
     public function getMethod();
     public function getPath();
     public function getAction();
-    public function getHandle();
+    public function getLength();
+    public function getCompiledRoute();
+    public function isDynamicRoute();
 
 }

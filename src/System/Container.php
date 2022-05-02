@@ -53,13 +53,13 @@ class Container{
     }
 
     public function alias($abstract, $concrete = null){
-        if(isset($this->lazy[$abstract]))
+        if(isset($this->alias[$abstract]) && !is_null($concrete))
             throw new AlreadyExistsException;
-        if(is_string($concrete) && class_exists($concrete)){
+        if(is_string($concrete)){
             $this->alias[$abstract] = $concrete;
         }
         if(is_null($concrete) && isset($this->alias[$abstract])){
-            return $this->alias($abstract);
+            return $this->alias[$abstract];
         }
         return $abstract;
     }

@@ -14,9 +14,10 @@ $adapter = new League\Flysystem\Local\LocalFilesystemAdapter(__DIR__);
 $filesystem = new League\Flysystem\Filesystem($adapter);
 
 $router = \Application\Routing\Router::getInstance();
-
+$view = new \Application\View(__DIR__.'/Views',__DIR__.'/Views/@cache');
 $app->bindLazy(\Symfony\Component\HttpFoundation\Request::class,$request);
 $app->bindLazy(\Symfony\Component\HttpFoundation\Session\Session::class,$session);
+$app->bindLazy('view',$view);
 $app->bind('router', $router);
 $app->bind('request', $request);
 $app->bind('session', $session);

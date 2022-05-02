@@ -1,0 +1,1 @@
+<h1><?php echo e($name); ?></h1><?php /**PATH D:\github\vohoangtu0409\kodingmvc\App\Home\Resources/view/index.blade.php ENDPATH**/ ?>

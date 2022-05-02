@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class IndexController extends BaseController{
     public function index(Request $request, Session $session, IndexRepository $repository){
-        echo $repository->hello();
+        return view()->make('home::index', [
+            'name' => 123
+        ]);
     }
 }

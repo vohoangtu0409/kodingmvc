@@ -18,3 +18,7 @@ function files() : \League\Flysystem\Filesystem{
 function router() : \Application\Routing\Router{
     return app('router');
 }
+
+function view() : Application\View{
+    return app('view');
+}

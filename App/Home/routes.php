@@ -1,12 +1,19 @@
 <?php
 router()->addGet('/',[
     '_controller' => \App\Home\Controllers\IndexController::class,
-    '_action'   => 'index',
-    '_view' =>  'home::index'
+    '_action'   => 'index'
 ]);
 
-router()->addGet('/{id}',[
+router()->addGet('/home/:id',[
     '_controller' => \App\Home\Controllers\IndexController::class,
-    '_action'   => 'index',
-    '_view' =>  'home::index'
+    '_action'   => 'index'
+]);
+
+router()->addGet('/home/:id/account',[
+    '_controller' => \App\Home\Controllers\IndexController::class,
+    '_action'   => 'index'
+]);
+router()->addGet('/home/:id/account/edit',[
+    '_controller' => \App\Home\Controllers\IndexController::class,
+    '_action'   => 'index'
 ]);

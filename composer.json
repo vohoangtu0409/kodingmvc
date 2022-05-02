@@ -1,0 +1,22 @@
+{
+    "name": "vohoa/kodingmvc",
+    "autoload": {
+        "psr-4": {
+            "Application\\": "src/Application",
+            "System\\": "src/System",
+            "Core\\": "src/Core",
+            "App\\": "App"
+        }
+    },
+    "authors": [
+        {
+            "name": "HoangTu",
+            "email": "tuvo@pandavietnamsoftware.com"
+        }
+    ],
+    "require": {
+        "illuminate/http": "^8.83",
+        "symfony/var-dumper": "^5.4",
+        "league/flysystem": "^2.4"
+    }
+}

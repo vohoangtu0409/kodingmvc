@@ -19,6 +19,6 @@ function router() : \Application\Routing\Router{
     return app('router');
 }
 
-function view() : Application\View{
+function view() : Application\View\BladeEngine{
     return app('view');
 }

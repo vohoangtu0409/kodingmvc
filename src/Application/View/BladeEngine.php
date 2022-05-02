@@ -1,5 +1,5 @@
 <?php
-namespace Application;
+namespace Application\View;
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\Container as ContainerInterface;
@@ -9,9 +9,8 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
-use Tuezy\Infrastructure\View\View as ViewInterface;
 
-class View implements FactoryContract{
+class BladeEngine implements FactoryContract{
     /**
      * @var Container
      */
@@ -33,7 +32,7 @@ class View implements FactoryContract{
 
         $this->setupContainer((array) $viewPaths, $cachePath);
 
-        (new \Illuminate\View\ViewServiceProvider($this->container))->register();
+        (new BladeServiceProvider($this->container))->register();
 
         $this->factory = $this->container->get('view');
 

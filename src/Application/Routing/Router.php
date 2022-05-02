@@ -73,10 +73,16 @@ class Router
         if(is_array($routes)){
             foreach ($routes as $uriRoutes){
                 $preg = preg_match($uriRoutes->getCompiledRoute().'/', $request->getRequestUri());
-                if($preg && $uriRoutes->isDynamicRoute()){
-                    $routes = $uriRoutes;break;
+                if($preg === 1 && $uriRoutes->isDynamicRoute()){
+                    $routes = $uriRoutes;
+                    break;
                 }
             }
+        }
+        if(is_array($routes)){
+            $response = new Response("Route not found", 404);
+            $response->send();
+            die();
         }
         return $this->sendResponse($routes);
     }

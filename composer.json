@@ -1,24 +1,23 @@
 {
-    "name": "vohoa/kodingmvc",
+    "name": "vohoangtu/kodingmvc",
     "autoload": {
         "psr-4": {
             "Application\\": "src/Application",
             "System\\": "src/System",
-            "Core\\": "src/Core",
             "App\\": "App"
         }
     },
     "authors": [
         {
             "name": "HoangTu",
-            "email": "tuvo@pandavietnamsoftware.com"
+            "email": "vohoangtu0409@gmail.com"
         }
     ],
     "require": {
-        "illuminate/http": "^8.83",
-        "symfony/var-dumper": "^5.4",
-        "league/flysystem": "^2.4",
-        "illuminate/view": "^8.83",
-        "illuminate/routing": "^8.83"
+        "symfony/var-dumper": "*",
+        "league/flysystem": "*",
+        "illuminate/view": "*",
+        "symfony/http-foundation": "*",
+        "symfony/asset": "^5.4"
     }
 }

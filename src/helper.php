@@ -22,3 +22,9 @@ function router() : \Application\Routing\Router{
 function view() : Application\View\BladeEngine{
     return app('view');
 }
+
+function asset($url){
+    $package = new \Symfony\Component\Asset\Package(
+        new \Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy(dirname(__DIR__).'/public/build/manifest.json'));
+    return $package->getUrl($url);
+}

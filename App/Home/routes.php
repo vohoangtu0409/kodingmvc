@@ -6,7 +6,7 @@ router()->addGet('/',[
 
 router()->addGet('/home/:id',[
     '_controller' => \App\Home\Controllers\IndexController::class,
-    '_action'   => 'index'
+    '_action'   => 'home'
 ]);
 
 router()->addGet('/home/:id/account',[

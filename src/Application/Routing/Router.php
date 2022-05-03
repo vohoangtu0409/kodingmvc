@@ -81,6 +81,7 @@ class Router
                 }
             }
         }
+
         if(is_array($routes)){
             $response = new Response("Route not found", 404);
             $response->send();

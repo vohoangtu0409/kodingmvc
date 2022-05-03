@@ -13,7 +13,7 @@ router()->addGet('/home/:id/account',[
     '_controller' => \App\Home\Controllers\IndexController::class,
     '_action'   => 'index'
 ]);
-router()->addGet('/home/:id/account/edit',[
+router()->addGet('/home/:id/account/:edit',[
     '_controller' => \App\Home\Controllers\IndexController::class,
-    '_action'   => 'index'
+    '_action'   => 'indexedit'
 ]);

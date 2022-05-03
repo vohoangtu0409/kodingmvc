@@ -70,10 +70,12 @@ class Router
      */
     public function resolve(Request $request, ...$arg){
         $routes = $this->getRoute($request);
+
         if(is_array($routes)){
             foreach ($routes as $uriRoutes){
                 $preg = preg_match($uriRoutes->getCompiledRoute().'/', $request->getRequestUri());
                 if($preg === 1 && $uriRoutes->isDynamicRoute()){
+                    if(count(explode('/', $uriRoutes->getPath())) != count(explode('/', $request->getRequestUri()))) continue;
                     $routes = $uriRoutes;
                     break;
                 }
@@ -98,6 +100,9 @@ class Router
     }
 
     private function sendResponse(Route $route){
+        if($route->isDynamicRoute()){
+            $this->resolveDynamicRoute($route);
+        }
         $action = $route->getAction();
         $controller = app($action['_controller']);
         $method = new \ReflectionMethod($action['_controller'], $action['_action']);
@@ -109,5 +114,19 @@ class Router
         $result = $method->invokeArgs(app($action['_controller']),$methodPara);
         $response = new Response($result);
         $response->send();
+    }
+    private function resolveDynamicRoute(Route $route){
+        $path = explode('/', $route->getPath());
+        $uri = explode('/', request()->getRequestUri());
+
+        for($i = 0; $i < count($path); $i ++){
+
+            if(strpos($path[$i], ':') > -1){
+                \request()->attributes->set(str_replace(':','', $path[$i]), $uri[$i]);
+                }
+            }
+
+
+        dump($route->getPath(),request(), request()->get('id'),request()->get('edit'));
     }
 }

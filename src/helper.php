@@ -23,8 +23,16 @@ function view() : Application\View\BladeEngine{
     return app('view');
 }
 
+function translator(): \Application\Translator\Translator{
+    return app('translator');
+}
+
 function asset($url){
     $package = new \Symfony\Component\Asset\Package(
         new \Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy(dirname(__DIR__).'/public/build/manifest.json'));
     return $package->getUrl($url);
+}
+
+function __($key, $data = [], $lang = 'en'){
+    return translator()->translate($key, $data, $lang);
 }
